@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Heart, Award, Users } from "lucide-react";
+
+const STAFF_URL = "https://ucarecdn.com/f6a72621-756d-4cde-a240-d5253fd3ad8e/";
 
 export const metadata: Metadata = {
   title: "About Us | Lexington Auto Spa",
@@ -38,6 +39,30 @@ export default function AboutPage() {
             </div>
           </div>
 
+          {/* Staff photo + community text */}
+          <div className="flex flex-col lg:flex-row gap-10 items-center mb-16">
+            <div className="rounded-2xl overflow-hidden flex-shrink-0 w-full lg:w-auto lg:max-w-md">
+              <Image
+                src={STAFF_URL}
+                alt="Lexington Auto Spa team"
+                width={500}
+                height={500}
+                className="w-full object-cover"
+              />
+            </div>
+            <div className="border-l-4 border-primary pl-8">
+              <p className="font-heading text-3xl sm:text-4xl text-foreground leading-tight mb-4">
+                These are your neighbors.
+              </p>
+              <p className="font-display text-muted-foreground text-base leading-relaxed mb-4">
+                When you pull into Lexington Auto Spa, you're trusting a local team that's been part of this community since 2005. These are the people who hand-prep every car and treat it like it belongs in their own driveway.
+              </p>
+              <p className="font-display text-muted-foreground text-base leading-relaxed">
+                Locally owned, locally operated, and glad you stopped by. Support us, and you're supporting your neighbors. We don't take that for granted.
+              </p>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { icon: Heart, title: "Passion for Detail", desc: "We hand-dry every car. We hand-apply tire dressing. These aren't shortcuts we'd take — they're the standard." },
@@ -54,13 +79,6 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <h2 className="font-heading text-4xl text-foreground mb-4">Come See Us</h2>
-            <p className="font-display text-muted-foreground mb-8">We&apos;re at 1124 Winchester Road, open Monday through Saturday, 8 AM to 5 PM.</p>
-            <Link href="/contact-us" className="inline-block bg-primary text-white font-display font-semibold px-8 py-4 rounded-md hover:bg-accent transition-colors">
-              Get in Touch
-            </Link>
-          </div>
         </div>
       </section>
     </>

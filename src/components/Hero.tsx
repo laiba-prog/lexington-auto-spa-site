@@ -1,75 +1,75 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Phone, Clock, MapPin } from "lucide-react";
 
-const FACILITY_URL = "https://ucarecdn.com/2ff7c026-989d-4d3e-827d-cf43c179bbad/";
+const BUILDING_URL = "https://ucarecdn.com/0b5bd0f7-1995-4307-bf3e-1db70ebe2f88/";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen bg-[hsl(var(--dark))] relative overflow-hidden flex flex-col">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center pt-20 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
-          {/* Left */}
-          <div className="opacity-0 animate-fade-up">
-            <span className="inline-block text-primary font-display font-semibold text-sm tracking-widest uppercase mb-4">
-              Family-Owned Since 2005
-            </span>
-            <h1 className="font-heading text-6xl sm:text-7xl lg:text-8xl text-white leading-none mb-6">
-              Lexington&apos;s Premier Car Wash Experience
-            </h1>
-            <p className="font-display text-white/70 text-lg mb-8 max-w-lg">
-              Keeping Lexington Vehicles Spotless Since 2005. From quick exterior washes to our top-tier Ultimate Shine, we deliver results that last.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/wash-packages"
-                className="bg-primary text-white font-display font-semibold px-8 py-4 rounded-md hover:bg-accent transition-colors text-center text-base shadow-lg"
-              >
-                View Packages
-              </Link>
-              <Link
-                href="/membership"
-                className="border-2 border-white/30 text-white font-display font-semibold px-8 py-4 rounded-md hover:border-primary hover:text-primary transition-colors text-center text-base"
-              >
-                Join Wash Club
-              </Link>
-            </div>
-          </div>
-
-          {/* Right */}
-          <div className="relative opacity-0 animate-fade-up-delay-2">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src={FACILITY_URL}
-                alt="Lexington Auto Spa facility"
-                width={600}
-                height={750}
-                className="w-full h-[450px] lg:h-[550px] object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-transparent" />
-            </div>
-            <div className="absolute -bottom-4 -left-4 bg-primary text-white rounded-xl p-4 shadow-xl">
-              <p className="font-heading text-3xl">20+</p>
-              <p className="font-display text-xs font-semibold">Years of Excellence</p>
-            </div>
-          </div>
+    <section className="min-h-screen bg-[hsl(var(--dark))] relative overflow-hidden flex flex-col justify-center">
+      {/* Background building image — light opacity on white */}
+      <div className="absolute inset-0">
+        <Image
+          src={BUILDING_URL}
+          alt="Lexington Auto Spa"
+          fill
+          className="object-cover opacity-30"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--dark))]/60 via-[hsl(var(--dark))]/50 to-[hsl(var(--dark))]" />
+        {/* Speed streaks — shoot across on load, then gone */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="streak streak-1" />
+          <div className="streak streak-2" />
+          <div className="streak streak-3" />
+          <div className="streak streak-4" />
         </div>
       </div>
 
-      {/* Stats bar */}
-      <div className="border-t border-white/10 bg-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-          {[
-            { value: "2005", label: "Founded" },
-            { value: "6", label: "Wash Packages" },
-            { value: "5★", label: "Customer Rating" },
-            { value: "Family", label: "Owned & Operated" },
-          ].map((stat) => (
-            <div key={stat.label}>
-              <p className="font-heading text-3xl text-primary">{stat.value}</p>
-              <p className="font-display text-white/60 text-xs font-medium mt-1">{stat.label}</p>
-            </div>
-          ))}
+      <div className="relative z-10 px-6 sm:px-10 lg:px-16 pt-28 pb-20">
+        <div className="text-center lg:text-left max-w-2xl lg:max-w-none">
+          <span className="inline-block bg-primary/10 border border-primary/30 text-primary font-display font-semibold text-xs tracking-widest uppercase px-4 py-1.5 rounded-full mb-6">
+            Family-Owned · Locally Operated · Since 2005
+          </span>
+
+          <h1 className="font-heading text-5xl sm:text-7xl lg:text-8xl text-white leading-none mb-6">
+            <span className="hero-line hero-line-1">Lexington&apos;s</span>
+            <span className="hero-line hero-line-2 text-primary">Premier</span>
+            <span className="hero-line hero-line-3">Car Wash</span>
+          </h1>
+
+          <p className="hero-sub font-display text-white/70 text-base sm:text-lg mb-10 max-w-lg mx-auto lg:mx-0">
+            Full-service interior &amp; exterior washes. Premium products. Real people who care about your car.
+          </p>
+
+          <div className="hero-ctas flex flex-row gap-3 justify-center lg:justify-start w-full">
+            <a
+              href="https://maps.google.com/?q=1124+Winchester+Road+Lexington+KY+40505"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-36 bg-primary text-white font-display font-bold px-4 py-3 rounded-md hover:bg-accent transition-colors text-center text-xs shadow-lg flex items-center justify-center"
+            >
+              Get Directions
+            </a>
+            <Link
+              href="/wash-packages"
+              className="w-36 border-2 border-white text-white font-display font-bold px-4 py-3 rounded-md hover:bg-white hover:text-[hsl(var(--dark))] transition-colors text-center text-xs flex items-center justify-center"
+            >
+              See Wash Packages
+            </Link>
+          </div>
+
+          <div className="hero-strip mt-12 flex flex-wrap justify-center lg:justify-start gap-6 text-sm font-display text-white/60">
+            <a href="tel:8592549663" className="flex items-center gap-2 hover:text-white transition-colors">
+              <Phone className="w-4 h-4 text-primary" />(859) 254-9663
+            </a>
+            <span className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-primary" />Mon–Sat 8AM–5PM
+            </span>
+            <span className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-primary" />1124 Winchester Rd
+            </span>
+          </div>
         </div>
       </div>
     </section>

@@ -1,21 +1,25 @@
 import Hero from "@/components/Hero";
+import OtherServices from "@/components/OtherServices";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Pricing from "@/components/Pricing";
-import CTABanner from "@/components/CTABanner";
+import WashClub from "@/components/WashClub";
+import VideoReels from "@/components/VideoReels";
 import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-
-const FACILITY_URL = "https://ucarecdn.com/2ff7c026-989d-4d3e-827d-cf43c179bbad/";
+import Location from "@/components/Location";
+import CTABanner from "@/components/CTABanner";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <WhyChooseUs facilityImageUrl={FACILITY_URL} />
+      <OtherServices />
+      <WhyChooseUs />
       <Pricing />
-      <CTABanner />
+      <WashClub />
+      <VideoReels />
       <Testimonials />
-      <FAQ />
+      <Location />
+      <CTABanner />
     </>
   );
 }

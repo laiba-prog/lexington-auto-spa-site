@@ -18,7 +18,7 @@ export default function ContactForm() {
           <span className="text-white text-2xl">✓</span>
         </div>
         <h3 className="font-heading text-3xl text-foreground mb-2">Message Sent!</h3>
-        <p className="font-display text-muted-foreground">Thanks for reaching out. We&apos;ll get back to you shortly.</p>
+        <p className="font-display text-muted-foreground">Thanks for reaching out. We'll get back to you shortly.</p>
       </div>
     );
   }

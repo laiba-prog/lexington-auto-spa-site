@@ -70,7 +70,7 @@ export default function ContactPage() {
 
           <div className="rounded-2xl overflow-hidden h-80 lg:h-96">
             <iframe
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCmL18misQw9KdwqGaw3zHkitj8vG6QF2Y&q=Lexington+Auto+Spa,1124+Winchester+Road,Lexington+KY+40505"
+              src="https://maps.google.com/maps?q=1124+Winchester+Rd,+Lexington,+KY+40505&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
