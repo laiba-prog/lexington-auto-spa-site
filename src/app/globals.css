@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 26 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 213 9% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 26 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --background: 0 0% 100%;
+    --foreground: 220 20% 10%;
+    --muted: 30 30% 96%;
+    --muted-foreground: 220 10% 45%;
+    --dark: 220 25% 8%;
+    --border: 220 10% 88%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
