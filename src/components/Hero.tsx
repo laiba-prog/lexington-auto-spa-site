@@ -4,20 +4,20 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="min-h-svh bg-[hsl(var(--dark))] relative overflow-hidden flex flex-col justify-end">
+    <section className="min-h-svh bg-[hsl(var(--dark))] relative overflow-hidden flex flex-col justify-center">
 
       {/* Video background */}
       <video
-        src="https://ucarecdn.com/8ac66fbd-b085-4cd4-93bb-71b3a0ddca52/lexington-hero.mp4"
+        src="https://43yvylcg4r.ucarecd.net/83141aef-7305-446d-afcb-1f1646031151/filename.mp4"
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-center"
       />
 
-      {/* Overlay — heavy at bottom so text pops */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/95" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/80" />
 
       {/* Speed streaks */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -28,7 +28,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full px-5 pb-10">
+      <div className="relative z-10 w-full px-5 py-10">
 
         {/* Est. badge */}
         <div className="flex items-center gap-2 mb-3">

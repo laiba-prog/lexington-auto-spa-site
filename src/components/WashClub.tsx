@@ -70,17 +70,22 @@ export default function WashClub() {
         </div>
 
         {/* Perks circles — full width row */}
-        <div className="grid grid-cols-4 gap-3 mb-14 order-3 w-full">
+        <div className="grid grid-cols-4 gap-4 mb-14 order-3 w-full">
           {perks.map((p) => (
             <div
               key={p.stat}
-              className="aspect-square flex flex-col items-center justify-center text-center p-2"
-              style={{ background: "hsl(26 100% 55%)", borderRadius: "50%" }}
+              className="flex flex-col items-center justify-center text-center overflow-hidden"
+              style={{
+                aspectRatio: "1 / 1",
+                borderRadius: "50%",
+                background: "hsl(26 100% 55%)",
+                padding: "8%",
+              }}
             >
-              <span className="font-heading text-white leading-tight" style={{ fontSize: "clamp(0.7rem, 2.5vw, 1.1rem)", letterSpacing: "0.03em" }}>
+              <span className="font-heading text-white leading-tight" style={{ fontSize: "clamp(0.85rem, 2.8vw, 1.3rem)", letterSpacing: "0.03em" }}>
                 {p.stat.toUpperCase()}
               </span>
-              <span className="font-sans text-white/80 leading-tight mt-1" style={{ fontSize: "clamp(0.55rem, 1.2vw, 0.7rem)" }}>
+              <span className="font-sans text-white/80 leading-tight mt-1" style={{ fontSize: "clamp(0.65rem, 1.5vw, 0.85rem)" }}>
                 {p.sub}
               </span>
             </div>

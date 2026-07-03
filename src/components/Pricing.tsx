@@ -1,42 +1,42 @@
 import Link from "next/link";
 
-type CardColor = "orange" | "navy" | "white";
+type CardColor = "orange" | "navy" | "dark" | "grey";
 
 const exterior: { name: string; price: string; features: string[]; badge?: string; color: CardColor; mobileFirst?: boolean }[] = [
-  { name: "Exterior Wash",  price: "$18", features: ["Wheel + Tire Cleaner", "Bug Prep", "Towel Dry"], color: "white" },
+  { name: "Exterior Wash",   price: "$18", features: ["Wheel + Tire Cleaner", "Bug Prep", "Towel Dry"], color: "grey" },
   { name: "Deluxe Exterior", price: "$23", features: ["Everything in Exterior", "Triple Foam Protectant", "Wheel Brite", "Hand Applied Tire Dressing"], color: "navy" },
-  { name: "Works Exterior", price: "$26", features: ["Everything in Deluxe", "Rain-X Wax", "Armor All Extreme Shine Wax", "Undercarriage + Rust Inhibitor"], badge: "Best Exterior Value", color: "orange", mobileFirst: true },
+  { name: "Works Exterior",  price: "$26", features: ["Everything in Deluxe", "Rain-X Wax", "Armor All Extreme Shine Wax", "Undercarriage + Rust Inhibitor"], badge: "Best Exterior Value", color: "orange" },
 ];
 
-const fullService: { name: string; price: string; features: string[]; badge?: string; color: CardColor }[] = [
-  { name: "Inside & Out",   price: "$35", features: ["Vacuum", "Windows Cleaned", "Dash & Console Wiped", "Exterior Wash", "Towel Dry"], color: "white" },
+const fullService: { name: string; price: string; features: string[]; badge?: string; color: CardColor; mobileFirst?: boolean }[] = [
+  { name: "Inside & Out",   price: "$35", features: ["Vacuum", "Windows Cleaned", "Dash & Console Wiped", "Exterior Wash", "Towel Dry"], color: "grey" },
   { name: "Ultimate",       price: "$40", features: ["Everything in Inside & Out", "Cup Holders Wiped", "Door Panels Wiped", "Undercarriage + Rust Inhibitor", "Wheel Brite", "Hand Applied Tire Dressing"], color: "navy" },
-  { name: "Ultimate Shine", price: "$60", features: ["Everything in Ultimate", "Dash/Doors/Console Dressed", "Rain-X Wax", "Armor All Professional Wax", "Extreme Shine Wax + Carnauba"], badge: "Most Popular", color: "orange" },
+  { name: "Ultimate Shine", price: "$60", features: ["Everything in Ultimate", "Dash/Doors/Console Dressed", "Rain-X Wax", "Armor All Professional Wax", "Extreme Shine Wax + Carnauba"], badge: "Most Popular", color: "orange", mobileFirst: true },
 ];
 
 function PackageCard({ pkg, mobileFirst }: { pkg: typeof fullService[0]; mobileFirst?: boolean }) {
   const isOrange = pkg.color === "orange";
   const isNavy   = pkg.color === "navy";
-  const isWhite  = pkg.color === "white";
+  const isGrey   = pkg.color === "grey";
 
-  const bg        = isOrange ? "bg-primary" : isNavy ? "bg-[#1e2636]" : "bg-white";
-  const headColor = isWhite  ? "text-[#161c2a]" : "text-white";
-  const priceColor= isOrange ? "text-white" : "text-primary";
-  const bodyColor = isWhite  ? "text-slate-600" : isOrange ? "text-white/90" : "text-white/80";
-  const dropFill  = isOrange ? "rgba(255,255,255,0.8)" : "hsl(26 100% 55%)";
-  const ctaBg     = isOrange ? "bg-[#161c2a] text-white hover:bg-black" : "bg-primary text-white hover:bg-accent";
+  const bg        = isOrange ? "bg-primary" : isNavy ? "bg-[#1e2636]" : isGrey ? "bg-[#d1d5db]" : "bg-[#0d1320]";
+  const headColor = isGrey ? "text-[#1e2636]" : "text-white";
+  const priceColor= isGrey ? "text-[#1e2636]" : isOrange ? "text-white" : "text-primary";
+  const bodyColor = isGrey ? "text-slate-700" : isOrange ? "text-white/90" : "text-white/80";
+  const dropFill  = isGrey ? "hsl(26 100% 55%)" : isOrange ? "rgba(255,255,255,0.8)" : "hsl(26 100% 55%)";
+  const ctaBg     = isGrey ? "bg-[#1e2636] text-white hover:bg-black" : isOrange ? "bg-[#161c2a] text-white hover:bg-black" : "bg-primary text-white hover:bg-accent";
 
   return (
     <div className={`relative pt-6 flex flex-col h-full ${mobileFirst ? "order-first sm:order-last" : ""}`}>
 
       {/* Badge */}
       {pkg.badge && (
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap bg-primary text-white text-[10px] font-sans font-bold tracking-widest uppercase px-5 py-2 shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap bg-[#1e2636] text-white text-[10px] font-sans font-bold tracking-widest uppercase px-5 py-2 shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
           ★ {pkg.badge}
         </div>
       )}
 
-      <div className={`flex flex-col flex-1 p-6 pt-8 ${bg} ${isWhite ? "ring-1 ring-black/10" : ""}`}>
+      <div className={`flex flex-col flex-1 p-6 pt-8 ${bg}`}>
         <h3 className={`font-heading leading-tight mb-1 ${headColor}`} style={{ fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)" }}>
           {pkg.name}
         </h3>
