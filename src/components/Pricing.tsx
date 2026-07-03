@@ -1,67 +1,59 @@
 import Link from "next/link";
 
-const exterior = [
-  { name: "Exterior Wash", price: "$18", features: ["Wheel + Tire Cleaner", "Bug Prep", "Towel Dry"], featured: false },
-  { name: "Deluxe Exterior", price: "$23", features: ["Everything in Exterior", "Triple Foam Protectant", "Wheel Brite", "Hand Applied Tire Dressing"], featured: false },
-  { name: "Works Exterior", price: "$26", features: ["Everything in Deluxe", "Rain-X Wax", "Armor All Extreme Shine Wax", "Undercarriage + Rust Inhibitor"], featured: true, badge: "Best Exterior Value" },
+type CardColor = "orange" | "navy" | "white";
+
+const exterior: { name: string; price: string; features: string[]; badge?: string; color: CardColor; mobileFirst?: boolean }[] = [
+  { name: "Exterior Wash",  price: "$18", features: ["Wheel + Tire Cleaner", "Bug Prep", "Towel Dry"], color: "white" },
+  { name: "Deluxe Exterior", price: "$23", features: ["Everything in Exterior", "Triple Foam Protectant", "Wheel Brite", "Hand Applied Tire Dressing"], color: "navy" },
+  { name: "Works Exterior", price: "$26", features: ["Everything in Deluxe", "Rain-X Wax", "Armor All Extreme Shine Wax", "Undercarriage + Rust Inhibitor"], badge: "Best Exterior Value", color: "orange", mobileFirst: true },
 ];
 
-const fullService = [
-  { name: "Inside & Out", price: "$35", features: ["Vacuum", "Windows Cleaned", "Dash & Console Wiped", "Exterior Wash", "Towel Dry"], featured: false },
-  { name: "Ultimate", price: "$40", features: ["Everything in Inside & Out", "Cup Holders Wiped", "Door Panels Wiped", "Undercarriage + Rust Inhibitor", "Wheel Brite", "Hand Applied Tire Dressing"], featured: false },
-  { name: "Ultimate Shine", price: "$60", features: ["Everything in Ultimate", "Dash/Doors/Console Dressed", "Rain-X Wax", "Armor All Professional Wax", "Extreme Shine Wax + Carnauba"], featured: true, badge: "Most Popular" },
+const fullService: { name: string; price: string; features: string[]; badge?: string; color: CardColor }[] = [
+  { name: "Inside & Out",   price: "$35", features: ["Vacuum", "Windows Cleaned", "Dash & Console Wiped", "Exterior Wash", "Towel Dry"], color: "white" },
+  { name: "Ultimate",       price: "$40", features: ["Everything in Inside & Out", "Cup Holders Wiped", "Door Panels Wiped", "Undercarriage + Rust Inhibitor", "Wheel Brite", "Hand Applied Tire Dressing"], color: "navy" },
+  { name: "Ultimate Shine", price: "$60", features: ["Everything in Ultimate", "Dash/Doors/Console Dressed", "Rain-X Wax", "Armor All Professional Wax", "Extreme Shine Wax + Carnauba"], badge: "Most Popular", color: "orange" },
 ];
 
-function PackageCard({ pkg }: { pkg: typeof exterior[0] & { badge?: string } }) {
-  const featured = pkg.featured;
+function PackageCard({ pkg, mobileFirst }: { pkg: typeof fullService[0]; mobileFirst?: boolean }) {
+  const isOrange = pkg.color === "orange";
+  const isNavy   = pkg.color === "navy";
+  const isWhite  = pkg.color === "white";
+
+  const bg        = isOrange ? "bg-primary" : isNavy ? "bg-[#1e2636]" : "bg-white";
+  const headColor = isWhite  ? "text-[#161c2a]" : "text-white";
+  const priceColor= isOrange ? "text-white" : "text-primary";
+  const bodyColor = isWhite  ? "text-slate-600" : isOrange ? "text-white/90" : "text-white/80";
+  const dropFill  = isOrange ? "rgba(255,255,255,0.8)" : "hsl(26 100% 55%)";
+  const ctaBg     = isOrange ? "bg-[#161c2a] text-white hover:bg-black" : "bg-primary text-white hover:bg-accent";
+
   return (
-    /* Outer wrapper reserves space for the floating badge on ALL cards */
-    <div className="relative pt-5 flex flex-col h-full">
+    <div className={`relative pt-6 flex flex-col h-full ${mobileFirst ? "order-first sm:order-last" : ""}`}>
 
-      {/* Badge floats centered on the top edge of the card */}
+      {/* Badge */}
       {pkg.badge && (
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap bg-[#1e2636] text-white text-[10px] font-sans font-bold tracking-widest uppercase px-5 py-2">
-          {pkg.badge}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap bg-primary text-white text-[10px] font-sans font-bold tracking-widest uppercase px-5 py-2 shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
+          ★ {pkg.badge}
         </div>
       )}
 
-      {/* Card body — full height below the badge slot */}
-      <div className={`flex flex-col flex-1 p-6 pt-8 ${featured ? "bg-primary" : "bg-[#1e2636]"}`}>
-        <h3
-          className="font-heading text-white leading-tight mb-1"
-          style={{ fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)" }}
-        >
+      <div className={`flex flex-col flex-1 p-6 pt-8 ${bg} ${isWhite ? "ring-1 ring-black/10" : ""}`}>
+        <h3 className={`font-heading leading-tight mb-1 ${headColor}`} style={{ fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)" }}>
           {pkg.name}
         </h3>
-        <p
-          className={`font-heading leading-none mb-6 ${featured ? "text-white" : "text-primary"}`}
-          style={{ fontSize: "clamp(3rem, 5vw, 4rem)" }}
-        >
+        <p className={`font-heading leading-none mb-6 ${priceColor}`} style={{ fontSize: "clamp(3rem, 5vw, 4rem)" }}>
           {pkg.price}
         </p>
         <ul className="space-y-3 flex-1 mb-6">
           {pkg.features.map((f) => (
             <li key={f} className="flex items-start gap-3">
               <svg className="shrink-0 mt-[3px]" width="10" height="13" viewBox="0 0 10 13" fill="none" aria-hidden>
-                <path
-                  d="M5 0 C5 0 0 5.5 0 8.5 C0 11.5 2.24 13 5 13 C7.76 13 10 11.5 10 8.5 C10 5.5 5 0 5 0Z"
-                  fill={featured ? "rgba(255,255,255,0.7)" : "hsl(26 100% 55%)"}
-                />
+                <path d="M5 0 C5 0 0 5.5 0 8.5 C0 11.5 2.24 13 5 13 C7.76 13 10 11.5 10 8.5 C10 5.5 5 0 5 0Z" fill={dropFill} />
               </svg>
-              <span className={`font-sans text-sm leading-snug ${featured ? "text-white/90" : "text-white/85"}`}>
-                {f}
-              </span>
+              <span className={`font-sans text-sm leading-snug ${bodyColor}`}>{f}</span>
             </li>
           ))}
         </ul>
-        <Link
-          href="/wash-packages"
-          className={`block text-center font-heading tracking-widest py-4 text-base transition-colors ${
-            featured
-              ? "bg-[#1e2636] text-white hover:bg-[#161c2a]"
-              : "bg-primary text-white hover:bg-accent"
-          }`}
-        >
+        <Link href="/wash-packages" className={`block text-center font-heading tracking-widest py-4 text-base transition-colors ${ctaBg}`}>
           Get This Wash
         </Link>
       </div>
@@ -83,7 +75,7 @@ function PackageGroup({ label, sub, packages }: { label: string; sub: string; pa
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:items-stretch">
         {packages.map((pkg) => (
-          <PackageCard key={pkg.name} pkg={pkg} />
+          <PackageCard key={pkg.name} pkg={pkg} mobileFirst={"mobileFirst" in pkg ? pkg.mobileFirst : false} />
         ))}
       </div>
     </div>
