@@ -60,7 +60,7 @@ export default function Header() {
               href="https://www.lexingtonautospa.com/#unlimited-club"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-white font-display font-semibold text-sm px-5 py-2.5 rounded-md hover:bg-accent transition-colors shadow-md"
+              className="bg-primary text-white font-heading tracking-wide text-sm px-5 py-2.5 hover:bg-accent transition-colors"
             >
               Manage My Membership
             </a>
@@ -93,7 +93,7 @@ export default function Header() {
               href="https://www.lexingtonautospa.com/#unlimited-club"
               target="_blank"
               rel="noopener noreferrer"
-              className="block bg-primary text-white font-display font-semibold text-sm px-5 py-3 rounded-md hover:bg-accent transition-colors text-center mt-4"
+              className="block bg-primary text-white font-heading tracking-wide text-sm px-5 py-3 hover:bg-accent transition-colors text-center mt-4"
               onClick={() => setMenuOpen(false)}
             >
               Manage My Membership

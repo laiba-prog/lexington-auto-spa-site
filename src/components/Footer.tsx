@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 
 export default function Footer({ logoUrl }: { logoUrl: string }) {
   return (
-    <footer className="bg-[hsl(var(--dark))] text-white">
+    <footer className="bg-[hsl(var(--dark))] text-white border-t-4 border-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div className="lg:col-span-1">
@@ -15,7 +15,7 @@ export default function Footer({ logoUrl }: { logoUrl: string }) {
                 href="https://www.instagram.com/lexingtonautospaky/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-white/10 hover:bg-primary rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-white/10 hover:bg-primary  flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
@@ -24,7 +24,7 @@ export default function Footer({ logoUrl }: { logoUrl: string }) {
                 href="https://www.facebook.com/lexingtonautospa/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-white/10 hover:bg-primary rounded-lg flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-white/10 hover:bg-primary  flex items-center justify-center transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
@@ -73,7 +73,7 @@ export default function Footer({ logoUrl }: { logoUrl: string }) {
               <li className="flex gap-2.5"><Phone className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" /><a href="tel:8592549663" className="text-white/60 hover:text-white font-display text-sm transition-colors">(859) 254-9663</a></li>
               <li className="flex gap-2.5"><Mail className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" /><a href="mailto:info@lexingtonautospa.com" className="text-white/60 hover:text-white font-display text-sm transition-colors">info@lexingtonautospa.com</a></li>
             </ul>
-            <div className="mt-4 p-3 bg-white/5 rounded-lg border border-white/10">
+            <div className="mt-4 p-3 bg-white/5  border border-white/10">
               <p className="font-display text-xs text-white/50 uppercase tracking-widest mb-1">Hours</p>
               <p className="font-display text-sm text-white/80">Mon–Sat: 8 AM – 5 PM</p>
               <p className="font-display text-sm text-white/80">Sunday: Closed</p>

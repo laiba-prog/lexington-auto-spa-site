@@ -25,9 +25,9 @@ const config: Config = {
         border: "hsl(var(--border))",
       },
       fontFamily: {
-        sans: ["DM Sans", "sans-serif"],
+        sans: ["Barlow", "sans-serif"],
         heading: ["Bebas Neue", "cursive"],
-        display: ["Montserrat", "sans-serif"],
+        display: ["Barlow", "sans-serif"],
       },
       keyframes: {
         "fade-up": {

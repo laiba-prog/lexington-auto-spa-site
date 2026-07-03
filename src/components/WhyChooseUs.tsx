@@ -1,98 +1,131 @@
 import Image from "next/image";
-import { Shield, Clock, Users, Coffee, Car } from "lucide-react";
 
 const BUILDING_URL = "https://ucarecdn.com/0b5bd0f7-1995-4307-bf3e-1db70ebe2f88/";
 
-const differentiators = [
-  {
-    icon: Car,
-    title: "Full-Service Interior & Exterior Washes",
-    desc: "We don't just rinse your car, we clean it inside and out.",
-  },
-  {
-    icon: Users,
-    title: "Fast, Friendly, Local Since 2005",
-    desc: "A Lexington auto care staple built on exceptional service for decades.",
-  },
-  {
-    icon: Shield,
-    title: "Premium Products & Modern Equipment",
-    desc: "Better soaps, better shine, better protection, and happier customers.",
-  },
+const ingredients = [
+  { name: "Exterior Hand Wash",         pct: "28%"        },
+  { name: "Rain Repellent Coating",     pct: "22%"        },
+  { name: "Carnauba Wax Protection",    pct: "18%"        },
+  { name: "Locally Owned & Operated",   pct: "Since 2005" },
+  { name: "Underbody Rust Protection",  pct: "12%"        },
+  { name: "100,000+ Cars Washed",       pct: "& Counting" },
+  { name: "Streak-Free Glass Polish",   pct: "6%"         },
+  { name: "4.7★ Google Rating",         pct: "Lexington"  },
+  { name: "Interior Deep Clean",        pct: "4%"         },
 ];
 
-const reasons = [
-  { icon: Users, title: "Locally Owned & Operated", desc: "Family-run since 2005. We're your neighbors — every car gets the same care we'd give our own." },
-  { icon: Shield, title: "Premium Products", desc: "Rain-X, Armor All, Carnauba wax — we only use products that actually protect your vehicle's finish." },
-  { icon: Clock, title: "Fast & Thorough", desc: "Exterior packages in 10–15 min, full-service in 20–30 min. Every package includes vacuum, windows, dash wipe, and a towel-dried finish." },
-  { icon: Coffee, title: "Comfortable Waiting Area", desc: "Relax inside while we work. Browse air fresheners, coffee, and other products while you wait." },
+const steps = [
+  { n: "01", text: "Pull up to 1124 Winchester Road" },
+  { n: "02", text: "Relax in the lounge with a coffee" },
+  { n: "03", text: "Drive out looking brand new"       },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-white -mt-12 lg:-mt-16 rounded-t-[2.5rem] shadow-[0_-8px_32px_rgba(0,0,0,0.12)] relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+    <section className="bg-white py-16 lg:py-24">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8">
 
-        {/* The Auto Spa Difference — 3 cards */}
-        <div className="mb-20">
-          <span className="text-primary font-display font-semibold text-sm tracking-widest uppercase">What Sets Us Apart</span>
-          <h2 className="font-heading text-5xl lg:text-6xl text-foreground mt-2 mb-10">The Auto Spa Difference</h2>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {differentiators.map((d) => (
-              <div key={d.title} className="bg-[hsl(var(--dark))] rounded-2xl p-8 text-center">
-                <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mx-auto mb-5">
-                  <d.icon className="w-7 h-7 text-white" />
-                </div>
-                <div className="w-10 h-0.5 bg-primary mx-auto mb-4" />
-                <h3 className="font-heading text-2xl text-white mb-3 leading-tight">{d.title}</h3>
-                <p className="font-display text-white/60 text-sm leading-relaxed">{d.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-16 items-center lg:grid-flow-row">
 
-        {/* Why choose us detail */}
-        <span className="text-primary font-display font-semibold text-sm tracking-widest uppercase">Why Choose Us</span>
-        <h2 className="font-heading text-5xl lg:text-6xl text-foreground mt-2 mb-8">
-          More Than Just a Car Wash
-        </h2>
-
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left: label */}
           <div>
-            <div className="space-y-6">
-              {reasons.map((r) => (
-                <div key={r.title} className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                    <r.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-bold text-foreground mb-1">{r.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed font-display">{r.desc}</p>
-                  </div>
-                </div>
-              ))}
+            {/* Top rule + brand line */}
+            <div className="border-t-4 border-foreground pt-4 mb-4">
+              <p className="font-sans text-xs tracking-[0.4em] uppercase text-foreground/40">
+                Est. 2005 · Lexington, Kentucky
+              </p>
             </div>
 
-            {/* Q&A */}
-            <div className="mt-8 bg-primary/5 border border-primary/15 rounded-2xl p-6">
-              <p className="font-display font-bold text-foreground text-sm mb-2">Q: How long does an interior full service wash take?</p>
-              <p className="font-display text-muted-foreground text-sm leading-relaxed">
-                About 20 to 30 minutes. Vacuum, windows cleaned, dash and console wiped, hand-prepped exterior, and a towel-dried finish. Every package. Every car. Every time.
+            {/* Product name */}
+            <h2
+              className="font-heading text-foreground leading-none mb-1"
+              style={{ fontSize: "clamp(3rem, 9vw, 5.5rem)" }}
+            >
+              MORE THAN
+            </h2>
+            <h2
+              className="font-heading text-primary leading-none mb-6"
+              style={{ fontSize: "clamp(3rem, 9vw, 5.5rem)" }}
+            >
+              A CAR WASH.
+            </h2>
+
+            {/* Double divider */}
+            <div className="border-t-2 border-foreground mb-1" />
+            <div className="border-t border-foreground mb-4" />
+
+            {/* Active ingredients */}
+            <p className="font-sans text-xs tracking-[0.4em] uppercase text-foreground/40 mb-3">
+              Active Ingredients
+            </p>
+            <ul className="divide-y divide-black/10 mb-4">
+              {ingredients.map((ing) => (
+                <li key={ing.name} className="flex items-baseline justify-between gap-4 py-2.5">
+                  <span className="font-heading text-foreground tracking-wide leading-none text-lg sm:text-xl">
+                    {ing.name.toUpperCase()}
+                  </span>
+                  <span className="font-sans text-foreground/35 text-sm tabular-nums shrink-0">
+                    {ing.pct}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Double divider */}
+            <div className="border-t border-foreground mb-1" />
+            <div className="border-t-2 border-foreground mb-4" />
+
+            {/* Directions */}
+            <p className="font-sans text-xs tracking-[0.4em] uppercase text-foreground/40 mb-3">
+              Directions for Use
+            </p>
+            <ol className="flex gap-6 mb-5">
+              {steps.map((s) => (
+                <li key={s.n} className="flex-1">
+                  <p className="font-heading text-primary text-3xl leading-none mb-1">{s.n}</p>
+                  <p className="font-sans text-foreground/50 text-sm leading-snug">{s.text}</p>
+                </li>
+              ))}
+            </ol>
+
+            {/* Double divider */}
+            <div className="border-t border-foreground mb-1" />
+            <div className="border-t-2 border-foreground mb-4" />
+
+            {/* Warning */}
+            <p className="font-sans text-xs tracking-[0.4em] uppercase text-foreground/40 mb-1">
+              Warning
+            </p>
+            <p className="font-sans text-foreground/40 text-sm leading-relaxed">
+              May cause excessive compliments on your vehicle. Known side effects include
+              an unusually shiny hood, suspiciously clean windows, and the uncontrollable
+              urge to park where people can see it. Use as often as needed.
+            </p>
+
+            {/* Fine print footer */}
+            <div className="border-t border-black/10 mt-4 pt-3">
+              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-foreground/25">
+                Lexington Auto Spa · 1124 Winchester Rd · 4.7★ Google Rating · Mon–Sat 8AM–5PM
               </p>
             </div>
           </div>
 
-          <div className="rounded-2xl overflow-hidden shadow-xl">
+          {/* Building photo — before label on mobile, after on desktop */}
+          <div className="relative overflow-hidden order-first lg:order-last" style={{ aspectRatio: "3/4" }}>
             <Image
               src={BUILDING_URL}
-              alt="Lexington Auto Spa car wash building"
-              width={600}
-              height={700}
-              className="w-full h-[400px] lg:h-[500px] object-cover"
+              alt="Lexington Auto Spa"
+              fill
+              className="object-cover"
             />
+            <div className="absolute bottom-0 left-0 right-0 bg-primary px-5 py-3">
+              <p className="font-heading text-white tracking-widest text-sm">
+                EST. 2005 · LEXINGTON, KY
+              </p>
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   );

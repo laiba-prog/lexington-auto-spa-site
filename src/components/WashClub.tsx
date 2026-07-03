@@ -1,107 +1,160 @@
-import { Check, Calendar, CreditCard, Car } from "lucide-react";
-
 const plans = [
   {
-    name: "Exterior Monthly",
-    price: "$29.95/mo",
-    features: ["Up to 10 Washes/Month", "One wash per day", "All exterior packages", "Simple monthly billing"],
-    featured: false,
+    name: "Full Service Monthly",
+    price: "$49.95",
+    per: "/mo",
+    tagline: "Inside and out — the full treatment, unlimited all month.",
+    features: [
+      "Up to 10 Washes / Month",
+      "One wash per day",
+      "All full-service packages included",
+      "Interior + exterior every visit",
+      "Simple monthly billing",
+      "Cancel anytime",
+    ],
+    featured: true,
+    badge: "Most Popular",
   },
   {
-    name: "Full Service Monthly",
-    price: "$49.95/mo",
-    features: ["Up to 10 Washes/Month", "One wash per day", "All full-service packages", "Simple monthly billing", "Best value for regular customers"],
-    featured: true,
+    name: "Exterior Monthly",
+    price: "$29.95",
+    per: "/mo",
+    tagline: "Keep it clean on the outside — fast, every day if you want.",
+    features: [
+      "Up to 10 Washes / Month",
+      "One wash per day",
+      "All exterior packages included",
+      "Simple monthly billing",
+      "Cancel anytime",
+    ],
+    featured: false,
   },
+];
+
+const perks = [
+  { stat: "Save up to 60%",    sub: "vs paying per wash"      },
+  { stat: "10 Washes / Month", sub: "one per day, no limits"  },
+  { stat: "Cancel Anytime",    sub: "no contracts, no catch"  },
+  { stat: "Since 2005",        sub: "trusted in Lexington"    },
 ];
 
 const steps = [
-  { step: "1", title: "Choose Your Plan", desc: "Exterior or Full Service — pick based on how you want your car cleaned." },
-  { step: "2", title: "Sign Up Online", desc: "Quick enrollment, one flat monthly charge, cancel anytime." },
-  { step: "3", title: "Come Anytime", desc: "Roll up to 1124 Winchester Road up to once per day, any day of the month." },
+  { n: "01", title: "Pick Your Plan",      desc: "Exterior or Full Service — one flat monthly rate, no contracts, no surprise fees." },
+  { n: "02", title: "Sign Up Online",      desc: "Quick enrollment, done in minutes. Your membership starts the same day."           },
+  { n: "03", title: "Come Back Every Day", desc: "Up to once per day all month long. We'll be here at 1124 Winchester Road."         },
 ];
 
-const benefits = [
-  { icon: Calendar, title: "Up to 10 Washes/Month", desc: "One wash per day. Keep your car consistently clean all month long." },
-  { icon: CreditCard, title: "Simple Monthly Billing", desc: "One charge per month. No surprises. Cancel anytime." },
-  { icon: Car, title: "Same Great Service", desc: "Members get the same hand-attention and premium products — because that's our standard." },
-];
+function Droplet({ orange }: { orange?: boolean }) {
+  return (
+    <svg className="shrink-0 mt-[3px]" width="10" height="13" viewBox="0 0 10 13" fill="none" aria-hidden>
+      <path d="M5 0 C5 0 0 5.5 0 8.5 C0 11.5 2.24 13 5 13 C7.76 13 10 11.5 10 8.5 C10 5.5 5 0 5 0Z"
+        fill={orange ? "hsl(26 100% 55%)" : "rgba(255,255,255,0.5)"} />
+    </svg>
+  );
+}
 
 export default function WashClub() {
   return (
-    <section className="bg-[hsl(var(--dark))] py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#161c2a] py-16 lg:py-24">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 flex flex-col">
 
-        <div className="text-center mb-12">
-          <span className="text-primary font-display font-semibold text-xs tracking-widest uppercase">Membership</span>
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-white mt-2 mb-3">Join the Wash Club</h2>
-          <p className="font-display text-white/60 text-sm sm:text-base max-w-xl mx-auto">
-            Unlimited clean. One flat monthly rate. Up to 10 washes a month — exterior or full service.
+        {/* Heading */}
+        <div className="mb-12 order-1">
+          <h2 className="font-heading text-white leading-none" style={{ fontSize: "clamp(2.8rem, 10vw, 5rem)" }}>
+            JOIN THE<br /><span className="text-primary">WASH CLUB.</span>
+          </h2>
+          <p className="font-sans text-white/40 text-base mt-3 max-w-md leading-relaxed">
+            Stop paying per wash. For less than the cost of two visits,
+            you get up to 10 washes a month — drive in whenever you want.
           </p>
         </div>
 
-        {/* Plans + Benefits side by side on desktop */}
-        <div className="flex flex-col lg:flex-row gap-8 mb-12">
-
-          {/* Plans */}
-          <div className="flex flex-col sm:flex-row gap-5 flex-1">
-          {[...plans].reverse().map((plan) => (
-            <div key={plan.name} className={`flex-1 rounded-2xl p-6 flex flex-col ${plan.featured ? "bg-primary shadow-[0_0_40px_rgba(255,127,26,0.3)]" : "bg-[#263035] border border-white/10"}`}>
-              <span className={`text-xs font-display font-bold px-3 py-1 rounded-full self-start mb-3 ${plan.featured ? "bg-white text-primary" : "bg-white/10 text-white/60"}`}>
-                {plan.featured ? "MOST POPULAR" : "EXTERIOR"}
+        {/* Tennis balls — after cards, before how it works */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-14 order-3 overflow-hidden">
+          {perks.map((p) => (
+            <div
+              key={p.stat}
+              className="circle aspect-square flex flex-col items-center justify-center text-center p-4"
+              style={{ background: "hsl(26 100% 55%)", borderRadius: "50%" }}
+            >
+              <span className="font-heading text-white leading-tight" style={{ fontSize: "clamp(1.1rem, 2.8vw, 1.4rem)", letterSpacing: "0.03em" }}>
+                {p.stat.toUpperCase()}
               </span>
-              <h3 className="font-heading text-2xl mb-1 text-white">{plan.name}</h3>
-              <p className={`font-heading text-3xl mb-5 ${plan.featured ? "text-white" : "text-primary"}`}>{plan.price}</p>
-              <ul className="space-y-2.5 flex-1 mb-6">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 flex-shrink-0 text-white" />
-                    <span className="font-display text-sm text-white/80">{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="https://www.lexingtonautospa.com/#unlimited-club"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`block text-center font-display font-bold py-3 rounded-md transition-colors text-sm ${plan.featured ? "bg-white text-primary hover:bg-white/90" : "border-2 border-primary text-primary hover:bg-primary hover:text-white"}`}
-              >
-                Join Today
-              </a>
+              <span className="font-sans text-white/70 leading-tight mt-1" style={{ fontSize: "clamp(0.65rem, 1.3vw, 0.75rem)" }}>
+                {p.sub}
+              </span>
             </div>
           ))}
-          </div>
+        </div>
 
-          {/* Benefits stacked vertically */}
-          <div className="flex flex-col gap-4 lg:w-72 flex-shrink-0">
-            {benefits.map((b) => (
-              <div key={b.title} className="bg-[#263035] border border-white/10 rounded-2xl p-5 flex gap-4 items-start">
-                <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <b.icon className="w-5 h-5 text-primary" />
+        {/* Plan cards — side by side */}
+        <div className="grid sm:grid-cols-2 gap-3 mb-16 order-2">
+          {plans.map((plan) => (
+            <div key={plan.name} className="relative pt-5 flex flex-col">
+              {plan.badge && (
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap bg-white text-[#161c2a] text-[9px] font-sans font-bold tracking-widest uppercase px-4 py-1.5">
+                  {plan.badge}
                 </div>
-                <div>
-                  <h3 className="font-display font-bold text-white text-sm mb-0.5">{b.title}</h3>
-                  <p className="font-display text-white/60 text-xs leading-relaxed">{b.desc}</p>
+              )}
+              <div className={`flex flex-col flex-1 p-6 pt-8 ${plan.featured ? "bg-primary" : "bg-[#1e2636]"}`}>
+                <h3 className="font-heading text-white leading-tight mb-1" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}>
+                  {plan.name.toUpperCase()}
+                </h3>
+                <p className="font-sans text-sm leading-snug mb-5" style={{ color: "rgba(255,255,255,0.45)" }}>
+                  {plan.tagline}
+                </p>
+                <div className="flex items-baseline gap-1 mb-6 pb-6 border-b border-white/10">
+                  <span className="font-heading text-white leading-none" style={{ fontSize: "clamp(3rem, 6vw, 4rem)" }}>
+                    {plan.price}
+                  </span>
+                  <span className="font-sans text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>{plan.per}</span>
                 </div>
+                <ul className="space-y-2.5 flex-1 mb-6">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5">
+                      <Droplet orange={!plan.featured} />
+                      <span className="font-sans text-sm leading-snug text-white/80">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="https://www.lexingtonautospa.com/#unlimited-club"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block text-center font-heading tracking-widest py-4 text-sm transition-colors ${
+                    plan.featured
+                      ? "bg-[#161c2a] text-white hover:bg-black"
+                      : "bg-primary text-white hover:bg-accent"
+                  }`}
+                >
+                  Join Today
+                </a>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* How it works */}
-        <div className="bg-[#263035] border border-white/10 rounded-2xl p-8">
-          <h3 className="font-heading text-3xl text-white text-center mb-8">How It Works</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div className="border-t border-white/10 pt-12 mt-4 order-4">
+          <p className="font-sans text-xs tracking-[0.4em] uppercase text-white/25 mb-10">How It Works</p>
+          <div className="grid sm:grid-cols-3 gap-8">
             {steps.map((s) => (
-              <div key={s.step} className="text-center">
-                <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-3 font-heading text-xl">{s.step}</div>
-                <h4 className="font-display font-bold text-white mb-1 text-sm">{s.title}</h4>
-                <p className="font-display text-white/60 text-xs leading-relaxed">{s.desc}</p>
+              <div key={s.n} className="flex gap-5 items-start">
+                {/* Step number in orange circle */}
+                <div
+                  className="circle shrink-0 w-12 h-12 flex items-center justify-center"
+                  style={{ background: "hsl(26 100% 55%)", borderRadius: "50%" }}
+                >
+                  <span className="font-heading text-white text-lg leading-none">{s.n}</span>
+                </div>
+                <div>
+                  <p className="font-heading text-white tracking-wide text-lg leading-none mb-2">{s.title.toUpperCase()}</p>
+                  <p className="font-sans text-white/40 text-sm leading-relaxed">{s.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
-
 
       </div>
     </section>

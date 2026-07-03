@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Heart, Award, Users } from "lucide-react";
 
 const STAFF_URL = "https://ucarecdn.com/f6a72621-756d-4cde-a240-d5253fd3ad8e/";
 
@@ -63,21 +62,25 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <ul className="border-t border-foreground/10 divide-y divide-foreground/10">
             {[
-              { icon: Heart, title: "Passion for Detail", desc: "We hand-dry every car. We hand-apply tire dressing. These aren't shortcuts we'd take — they're the standard." },
-              { icon: Award, title: "Proven Quality", desc: "Over 20 years of repeat customers is the only metric that matters to us. That trust is earned wash by wash." },
-              { icon: Users, title: "Community First", desc: "We're your neighbors. We live in Lexington, we work in Lexington, and we're invested in this community." },
+              { title: "Passion for Detail", desc: "We hand-dry every car. We hand-apply tire dressing. These aren't shortcuts we'd take — they're the standard." },
+              { title: "Proven Quality",     desc: "Over 20 years of repeat customers is the only metric that matters to us. That trust is earned wash by wash." },
+              { title: "Community First",    desc: "We're your neighbors. We live in Lexington, we work in Lexington, and we're invested in this community." },
             ].map((v) => (
-              <div key={v.title} className="bg-muted rounded-2xl p-8 text-center">
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <v.icon className="w-7 h-7 text-primary" />
+              <li key={v.title} className="flex items-start gap-5 py-6">
+                <svg className="shrink-0 mt-1" width="22" height="22" viewBox="0 0 24 24" fill="hsl(26 100% 55%)" aria-hidden>
+                  <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                </svg>
+                <div>
+                  <h3 className="font-heading text-foreground leading-tight mb-1" style={{ fontSize: "clamp(1.3rem, 2vw, 1.6rem)" }}>
+                    {v.title.toUpperCase()}
+                  </h3>
+                  <p className="font-sans text-base text-foreground/55 leading-relaxed">{v.desc}</p>
                 </div>
-                <h3 className="font-heading text-2xl text-foreground mb-2">{v.title}</h3>
-                <p className="font-display text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
 
         </div>
       </section>
