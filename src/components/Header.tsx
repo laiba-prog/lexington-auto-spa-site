@@ -29,8 +29,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "bg-[hsl(var(--dark))] shadow-lg" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +50,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-white/80 hover:text-white font-display text-sm font-medium transition-colors"
+                className="text-slate-700 hover:text-primary font-display text-sm font-medium transition-colors"
               >
                 {link.label}
               </Link>
@@ -67,7 +66,7 @@ export default function Header() {
           </nav>
 
           <button
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-slate-700 p-2"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >

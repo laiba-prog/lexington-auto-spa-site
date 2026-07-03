@@ -69,18 +69,18 @@ export default function WashClub() {
           </p>
         </div>
 
-        {/* Tennis balls — after cards, before how it works */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-14 order-3 overflow-hidden">
+        {/* Perks circles */}
+        <div className="flex flex-wrap justify-center gap-4 mb-14 order-3">
           {perks.map((p) => (
             <div
               key={p.stat}
-              className="circle aspect-square flex flex-col items-center justify-center text-center p-4"
+              className="flex flex-col items-center justify-center text-center w-24 h-24 sm:w-28 sm:h-28"
               style={{ background: "hsl(26 100% 55%)", borderRadius: "50%" }}
             >
-              <span className="font-heading text-white leading-tight" style={{ fontSize: "clamp(1.1rem, 2.8vw, 1.4rem)", letterSpacing: "0.03em" }}>
+              <span className="font-heading text-white leading-tight px-2" style={{ fontSize: "clamp(0.85rem, 2vw, 1rem)", letterSpacing: "0.03em" }}>
                 {p.stat.toUpperCase()}
               </span>
-              <span className="font-sans text-white/70 leading-tight mt-1" style={{ fontSize: "clamp(0.65rem, 1.3vw, 0.75rem)" }}>
+              <span className="font-sans text-white/80 leading-tight mt-0.5 px-2" style={{ fontSize: "clamp(0.6rem, 1.1vw, 0.7rem)" }}>
                 {p.sub}
               </span>
             </div>
@@ -92,28 +92,28 @@ export default function WashClub() {
           {plans.map((plan) => (
             <div key={plan.name} className="relative pt-5 flex flex-col">
               {plan.badge && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap bg-white text-[#161c2a] text-[9px] font-sans font-bold tracking-widest uppercase px-4 py-1.5">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap bg-[#161c2a] text-white text-[9px] font-sans font-bold tracking-widest uppercase px-4 py-1.5">
                   {plan.badge}
                 </div>
               )}
-              <div className={`flex flex-col flex-1 p-6 pt-8 ${plan.featured ? "bg-primary" : "bg-[#1e2636]"}`}>
-                <h3 className="font-heading text-white leading-tight mb-1" style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}>
+              <div className={`flex flex-col flex-1 p-6 pt-8 ${plan.featured ? "bg-primary" : "bg-white"}`}>
+                <h3 className={`font-heading leading-tight mb-1 ${plan.featured ? "text-white" : "text-[#161c2a]"}`} style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}>
                   {plan.name.toUpperCase()}
                 </h3>
-                <p className="font-sans text-sm leading-snug mb-5" style={{ color: "rgba(255,255,255,0.45)" }}>
+                <p className="font-sans text-sm leading-snug mb-5" style={{ color: plan.featured ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.45)" }}>
                   {plan.tagline}
                 </p>
-                <div className="flex items-baseline gap-1 mb-6 pb-6 border-b border-white/10">
-                  <span className="font-heading text-white leading-none" style={{ fontSize: "clamp(3rem, 6vw, 4rem)" }}>
+                <div className={`flex items-baseline gap-1 mb-6 pb-6 border-b ${plan.featured ? "border-white/10" : "border-black/10"}`}>
+                  <span className={`font-heading leading-none ${plan.featured ? "text-white" : "text-primary"}`} style={{ fontSize: "clamp(3rem, 6vw, 4rem)" }}>
                     {plan.price}
                   </span>
-                  <span className="font-sans text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>{plan.per}</span>
+                  <span className="font-sans text-sm" style={{ color: plan.featured ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.4)" }}>{plan.per}</span>
                 </div>
                 <ul className="space-y-2.5 flex-1 mb-6">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5">
-                      <Droplet orange={!plan.featured} />
-                      <span className="font-sans text-sm leading-snug text-white/80">{f}</span>
+                      <Droplet orange />
+                      <span className={`font-sans text-sm leading-snug ${plan.featured ? "text-white/80" : "text-slate-700"}`}>{f}</span>
                     </li>
                   ))}
                 </ul>
