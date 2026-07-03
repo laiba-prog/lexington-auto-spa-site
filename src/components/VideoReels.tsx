@@ -1,4 +1,4 @@
-const REEL2_URL = "/video.mp4";
+const REEL2_URL = "https://ucarecdn.com/f1c9b6cd-889c-47da-bd50-77bac5090d7f/lexington-in-action.mp4";
 
 export default function VideoReels() {
   return (
