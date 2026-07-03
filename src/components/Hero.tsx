@@ -8,7 +8,7 @@ export default function Hero() {
 
       {/* Video background */}
       <video
-        src="https://43yvylcg4r.ucarecd.net/83141aef-7305-446d-afcb-1f1646031151/filename.mp4"
+        src="https://ucarecdn.com/0dd480dc-1afe-4ae4-9d04-e7c9546d19a9/cropped.mp4"
         autoPlay
         muted
         loop
