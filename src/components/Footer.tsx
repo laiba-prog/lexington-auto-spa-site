@@ -9,13 +9,13 @@ export default function Footer({ logoUrl }: { logoUrl: string }) {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div className="lg:col-span-1">
             <Image src={logoUrl} alt="Lexington Auto Spa" width={160} height={50} className="h-10 w-auto object-contain mb-4" />
-            <p className="text-white/60 font-display text-sm leading-relaxed mb-5">Keeping Lexington Vehicles Spotless Since 2005.</p>
+            <p className="text-white/60 font-display text-lg leading-relaxed mb-5">Keeping Lexington Vehicles Spotless Since 2005.</p>
             <div className="flex gap-3">
               <a
                 href="https://www.instagram.com/lexingtonautospaky/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-white/10 hover:bg-primary  flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
@@ -24,7 +24,7 @@ export default function Footer({ logoUrl }: { logoUrl: string }) {
                 href="https://www.facebook.com/lexingtonautospa/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-white/10 hover:bg-primary  flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
@@ -32,32 +32,32 @@ export default function Footer({ logoUrl }: { logoUrl: string }) {
             </div>
           </div>
           <div>
-            <h4 className="font-display font-bold text-white mb-4 text-sm tracking-widest uppercase">Services</h4>
+            <h4 className="font-display font-bold text-white mb-4 text-lg tracking-widest uppercase">Services</h4>
             <ul className="space-y-2.5">
               {[
-                ["Exterior Wash", "/wash-packages"],
-                ["Full Service", "/wash-packages"],
+                ["Exterior Wash", "/#pricing"],
+                ["Full Service", "/#pricing"],
                 ["Wash Club", "/membership"],
                 ["About Us", "/about-us"],
               ].map(([label, href]) => (
-                <li key={label}><Link href={href} className="text-white/60 hover:text-white font-display text-sm transition-colors">{label}</Link></li>
+                <li key={label}><Link href={href} className="text-white/60 hover:text-white font-display text-lg">{label}</Link></li>
               ))}
             </ul>
           </div>
           <div>
-            <h4 className="font-display font-bold text-white mb-4 text-sm tracking-widest uppercase">Company</h4>
+            <h4 className="font-display font-bold text-white mb-4 text-lg tracking-widest uppercase">Company</h4>
             <ul className="space-y-2.5">
               {[
                 ["About Us", "/about-us"],
                 ["Blog", "/blog"],
                 ["Contact Us", "/contact-us"],
               ].map(([label, href]) => (
-                <li key={label}><Link href={href} className="text-white/60 hover:text-white font-display text-sm transition-colors">{label}</Link></li>
+                <li key={label}><Link href={href} className="text-white/60 hover:text-white font-display text-lg">{label}</Link></li>
               ))}
             </ul>
           </div>
           <div>
-            <h4 className="font-display font-bold text-white mb-4 text-sm tracking-widest uppercase">Contact</h4>
+            <h4 className="font-display font-bold text-white mb-4 text-lg tracking-widest uppercase">Contact</h4>
             <ul className="space-y-3">
               <li className="flex gap-2.5">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
@@ -65,23 +65,23 @@ export default function Footer({ logoUrl }: { logoUrl: string }) {
                   href="https://maps.google.com/?q=1124+Winchester+Road+Lexington+KY+40505"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white font-display text-sm transition-colors"
+                  className="text-white/60 hover:text-white font-display text-lg"
                 >
                   1124 Winchester Road, Lexington, KY 40505
                 </a>
               </li>
-              <li className="flex gap-2.5"><Phone className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" /><a href="tel:8592549663" className="text-white/60 hover:text-white font-display text-sm transition-colors">(859) 254-9663</a></li>
-              <li className="flex gap-2.5"><Mail className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" /><a href="mailto:info@lexingtonautospa.com" className="text-white/60 hover:text-white font-display text-sm transition-colors">info@lexingtonautospa.com</a></li>
+              <li className="flex gap-2.5"><Phone className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" /><a href="tel:8592549663" className="text-white/60 hover:text-white font-display text-lg">(859) 254-9663</a></li>
+              <li className="flex gap-2.5"><Mail className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" /><a href="mailto:info@lexingtonautospa.com" className="text-white/60 hover:text-white font-display text-lg break-all">info@lexingtonautospa.com</a></li>
             </ul>
-            <div className="mt-4 p-3 bg-white/5  border border-white/10">
-              <p className="font-display text-xs text-white/50 uppercase tracking-widest mb-1">Hours</p>
-              <p className="font-display text-sm text-white/80">Mon–Sat: 8 AM – 5 PM</p>
-              <p className="font-display text-sm text-white/80">Sunday: Closed</p>
+            <div className="mt-4 p-3 rounded-lg bg-white/5 ring-1 ring-white/10">
+              <p className="font-display text-lg text-white/50 uppercase tracking-widest mb-1">Hours</p>
+              <p className="font-display text-lg text-white/80">Mon–Sat: 8 AM – 5 PM</p>
+              <p className="font-display text-lg text-white/80">Sunday: Closed</p>
             </div>
           </div>
         </div>
         <div className="border-t border-white/10 pt-8 text-center">
-          <p className="text-white/40 font-display text-sm">© 2026 Lexington Auto Spa. All rights reserved.</p>
+          <p className="text-white/40 font-display text-lg">© 2026 Lexington Auto Spa. All rights reserved.</p>
         </div>
       </div>
     </footer>

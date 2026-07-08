@@ -19,9 +19,9 @@ export function Accordion({ items }: AccordionProps) {
   return (
     <div className="space-y-3">
       {items.map((item, i) => (
-        <div key={i} className="border border-border rounded-lg overflow-hidden">
+        <div key={i} className="bg-white rounded-lg overflow-hidden shadow-sm">
           <button
-            className="flex w-full items-center justify-between px-6 py-4 text-left font-display font-semibold text-foreground hover:bg-muted/50 transition-colors"
+            className="flex w-full items-center justify-between px-6 py-4 text-left font-display font-semibold text-foreground hover:bg-muted/50"
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
           >
             <span>{item.question}</span>
@@ -30,7 +30,7 @@ export function Accordion({ items }: AccordionProps) {
             />
           </button>
           {openIndex === i && (
-            <div className="px-6 pb-4 text-muted-foreground leading-relaxed font-display text-sm">
+            <div className="px-6 pb-4 text-muted-foreground leading-relaxed font-display text-lg">
               {item.answer}
             </div>
           )}

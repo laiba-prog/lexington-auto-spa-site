@@ -1,14 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Anton&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  *:not(.circle), *::before, *::after {
-    border-radius: 0 !important;
-  }
-}
 
 @layer utilities {
   .hero-line {
@@ -39,10 +34,10 @@
     opacity: 0;
     animation: streakShoot 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
-  .streak-1 { top: 38%; width: 55%; left: -60%; background: hsl(26 100% 55%); animation-delay: 0s; }
-  .streak-2 { top: 44%; width: 40%; left: -50%; background: hsl(26 100% 65% / 0.7); animation-delay: 0.08s; height: 3px; }
-  .streak-3 { top: 50%; width: 65%; left: -70%; background: hsl(26 100% 55%); animation-delay: 0.14s; }
-  .streak-4 { top: 56%; width: 35%; left: -45%; background: hsl(26 100% 65% / 0.5); animation-delay: 0.2s; height: 2px; }
+  .streak-1 { top: 38%; width: 55%; left: -60%; background: hsl(var(--primary)); animation-delay: 0s; }
+  .streak-2 { top: 44%; width: 40%; left: -50%; background: hsl(var(--gold) / 0.8); animation-delay: 0.08s; height: 3px; }
+  .streak-3 { top: 50%; width: 65%; left: -70%; background: hsl(var(--primary)); animation-delay: 0.14s; }
+  .streak-4 { top: 56%; width: 35%; left: -45%; background: hsl(var(--gold) / 0.6); animation-delay: 0.2s; height: 2px; }
 
   @keyframes streakShoot {
     0%   { left: -70%; opacity: 0; }
@@ -54,25 +49,31 @@
 
 @layer base {
   :root {
-    --primary: 26 100% 55%;
+    /* Consolidated from the logo swoosh (primary/gold) plus the Citrus and Peach picker
+       rounds (accent, coral) — one palette using several real orange shades together. */
+    --primary: 28 88% 52%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 213 9% 45%;
+    --secondary: 0 0% 25%;
     --secondary-foreground: 0 0% 100%;
-    --accent: 26 100% 50%;
+    --accent: 38 92% 46%;
     --accent-foreground: 0 0% 100%;
+    --gold: 43 90% 58%;
+    --gold-foreground: 0 0% 12%;
+    --coral: 20 82% 62%;
+    --coral-foreground: 0 0% 100%;
     --background: 0 0% 100%;
-    --foreground: 220 20% 10%;
-    --muted: 30 30% 96%;
-    --muted-foreground: 220 10% 45%;
-    --dark: 220 25% 8%;
-    --border: 220 10% 88%;
+    --foreground: 0 0% 11%;
+    --muted: 40 48% 92%;
+    --muted-foreground: 0 0% 38%;
+    --dark: 210 20% 14%;
+    --border: 0 0% 89%;
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply text-foreground font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading font-semibold;
   }
 }

@@ -10,7 +10,7 @@ const LOGO_URL = "https://ucarecdn.com/d1eb0081-8c1c-4fae-b9ba-efde99cd14d1/";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/wash-packages", label: "Wash Packages" },
+  { href: "/#pricing", label: "Wash Packages" },
   { href: "/about-us", label: "About Us" },
   { href: "/contact-us", label: "Contact Us" },
   { href: "/blog", label: "Blog" },
@@ -45,12 +45,12 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden min-[900px]:flex items-center gap-4 lg:gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-slate-700 hover:text-primary font-display text-sm font-medium transition-colors"
+                className="whitespace-nowrap text-foreground hover:text-primary font-display text-base lg:text-lg font-medium"
               >
                 {link.label}
               </Link>
@@ -59,14 +59,14 @@ export default function Header() {
               href="https://www.lexingtonautospa.com/#unlimited-club"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-white font-heading tracking-wide text-sm px-5 py-2.5 hover:bg-accent transition-colors"
+              className="whitespace-nowrap rounded-full bg-primary text-white font-heading tracking-wide text-base lg:text-lg px-4 py-2 lg:px-5 lg:py-2.5 hover:bg-accent"
             >
               Manage My Membership
             </a>
           </nav>
 
           <button
-            className="lg:hidden text-slate-700 p-2"
+            className="min-[900px]:hidden text-foreground p-2 rounded-full hover:bg-muted"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -76,13 +76,13 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="lg:hidden bg-[hsl(var(--dark))] border-t border-white/10">
+        <div className="min-[900px]:hidden bg-[hsl(var(--dark))] border-t border-white/10">
           <div className="max-w-7xl mx-auto px-4 py-4 space-y-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block text-white/80 hover:text-white font-display font-medium py-2 transition-colors"
+                className="block text-white/80 hover:text-white font-display font-medium py-2"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
@@ -92,7 +92,7 @@ export default function Header() {
               href="https://www.lexingtonautospa.com/#unlimited-club"
               target="_blank"
               rel="noopener noreferrer"
-              className="block bg-primary text-white font-heading tracking-wide text-sm px-5 py-3 hover:bg-accent transition-colors text-center mt-4"
+              className="block rounded-full bg-primary text-white font-heading tracking-wide text-lg px-5 py-3 hover:bg-accent text-center mt-4"
               onClick={() => setMenuOpen(false)}
             >
               Manage My Membership

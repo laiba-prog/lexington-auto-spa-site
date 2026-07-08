@@ -10,76 +10,66 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-[hsl(var(--dark))] pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <span className="text-primary font-display font-semibold text-sm tracking-widest uppercase">Get In Touch</span>
-          <h1 className="font-heading text-6xl sm:text-7xl text-white mt-2">Contact Us</h1>
-        </div>
-      </section>
+      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="rounded-[2.5rem] shadow-xl bg-[hsl(var(--muted))] max-w-5xl mx-auto px-5 py-12 sm:px-10 sm:py-16">
 
-      <section className="bg-white -mt-8 rounded-t-[2.5rem] relative z-10 py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 mb-16">
-            <div>
-              <h2 className="font-heading text-4xl text-foreground mb-8">Find Us</h2>
-              <ul className="space-y-6">
+          <div className="mb-10 text-center">
+            <div className="inline-flex items-center rounded-full bg-white px-4 py-1.5 mb-4 shadow-sm">
+              <span className="font-heading text-primary text-lg tracking-[0.2em] uppercase font-bold">Get In Touch</span>
+            </div>
+            <h1 className="font-logo text-foreground leading-none" style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}>
+              Contact <span className="text-primary">Us.</span>
+            </h1>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="rounded-3xl bg-white p-6 sm:p-8 shadow-sm">
+              <h2 className="font-logo text-2xl text-foreground mb-6">Find Us</h2>
+              <ul className="space-y-5">
                 <li className="flex gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-primary" />
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: "hsl(var(--primary) / 0.12)" }}>
+                    <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-display font-bold text-foreground">Address</p>
-                    <p className="font-display text-muted-foreground text-sm">1124 Winchester Road, Lexington, KY 40505</p>
+                    <p className="font-sans font-semibold text-foreground text-lg">Address</p>
+                    <p className="font-sans text-foreground/60 text-lg">1124 Winchester Road, Lexington, KY 40505</p>
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-primary" />
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: "hsl(var(--primary) / 0.12)" }}>
+                    <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-display font-bold text-foreground">Phone</p>
-                    <a href="tel:8592549663" className="font-display text-muted-foreground text-sm hover:text-primary transition-colors">(859) 254-9663</a>
+                    <p className="font-sans font-semibold text-foreground text-lg">Phone</p>
+                    <a href="tel:8592549663" className="font-sans text-foreground/60 text-lg hover:text-primary">(859) 254-9663</a>
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-primary" />
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: "hsl(var(--primary) / 0.12)" }}>
+                    <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-display font-bold text-foreground">Email</p>
-                    <a href="mailto:info@lexingtonautospa.com" className="font-display text-muted-foreground text-sm hover:text-primary transition-colors">info@lexingtonautospa.com</a>
+                    <p className="font-sans font-semibold text-foreground text-lg">Email</p>
+                    <a href="mailto:info@lexingtonautospa.com" className="font-sans text-foreground/60 text-lg hover:text-primary break-all">info@lexingtonautospa.com</a>
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-primary" />
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: "hsl(var(--primary) / 0.12)" }}>
+                    <Clock className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-display font-bold text-foreground">Hours</p>
-                    <p className="font-display text-muted-foreground text-sm">Monday – Saturday: 8 AM – 5 PM</p>
-                    <p className="font-display text-muted-foreground text-sm">Sunday: Closed</p>
+                    <p className="font-sans font-semibold text-foreground text-lg">Hours</p>
+                    <p className="font-sans text-foreground/60 text-lg">Monday – Saturday: 8 AM – 5 PM</p>
+                    <p className="font-sans text-foreground/60 text-lg">Sunday: Closed</p>
                   </div>
                 </li>
               </ul>
             </div>
-            <div>
-              <h2 className="font-heading text-4xl text-foreground mb-8">Send a Message</h2>
+
+            <div className="rounded-3xl bg-white p-6 sm:p-8 shadow-sm">
+              <h2 className="font-logo text-2xl text-foreground mb-6">Send a Message</h2>
               <ContactForm />
             </div>
-          </div>
-
-          <div className="rounded-2xl overflow-hidden h-80 lg:h-96">
-            <iframe
-              src="https://maps.google.com/maps?q=1124+Winchester+Rd,+Lexington,+KY+40505&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Lexington Auto Spa location"
-            />
           </div>
         </div>
       </section>

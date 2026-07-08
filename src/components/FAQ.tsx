@@ -15,11 +15,11 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="bg-muted py-20 lg:py-28">
+    <section className="py-20 lg:py-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <span className="text-primary font-display font-semibold text-sm tracking-widest uppercase">FAQ</span>
-          <h2 className="font-heading text-5xl lg:text-6xl text-foreground mt-2">Common Questions</h2>
+          <span className="text-[hsl(var(--dark))] font-display font-semibold text-lg tracking-widest uppercase">FAQ</span>
+          <h2 className="font-logo text-5xl lg:text-6xl text-foreground mt-2">Common Questions</h2>
         </div>
         <Accordion items={faqs} />
       </div>
