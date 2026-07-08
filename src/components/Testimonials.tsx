@@ -32,7 +32,7 @@ export default function Testimonials() {
   const visible = [reviews[index % total], reviews[(index + 1) % total], reviews[(index + 2) % total]];
 
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <section className="py-16 lg:py-24">
       <div className="max-w-5xl mx-auto px-5 sm:px-8">
 
         {/* Header */}
@@ -40,18 +40,18 @@ export default function Testimonials() {
           <div>
             <div className="flex items-center gap-3 mb-3">
               <div className="h-px w-8 bg-primary" />
-              <span className="font-sans text-primary text-[10px] tracking-[0.3em] uppercase font-semibold">Reviews</span>
+              <span className="font-sans text-[hsl(var(--dark))] text-lg tracking-[0.3em] uppercase font-semibold">Reviews</span>
             </div>
-            <h2 className="font-heading text-foreground leading-none" style={{ fontSize: "clamp(2.2rem, 8vw, 4rem)" }}>
+            <h2 className="font-logo text-foreground leading-none" style={{ fontSize: "clamp(2.2rem, 8vw, 4rem)" }}>
               WHAT LEXINGTON<br />IS SAYING.
             </h2>
           </div>
           {/* Nav arrows */}
           <div className="flex gap-2 shrink-0">
-            <button onClick={prev} className="w-10 h-10 bg-[hsl(var(--muted))] flex items-center justify-center hover:bg-primary hover:text-white transition-colors" aria-label="Previous">
+            <button onClick={prev} className="w-10 h-10 rounded-full bg-[hsl(var(--muted))] flex items-center justify-center hover:bg-primary hover:text-white" aria-label="Previous">
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <button onClick={next} className="w-10 h-10 bg-[hsl(var(--muted))] flex items-center justify-center hover:bg-primary hover:text-white transition-colors" aria-label="Next">
+            <button onClick={next} className="w-10 h-10 rounded-full bg-[hsl(var(--muted))] flex items-center justify-center hover:bg-primary hover:text-white" aria-label="Next">
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
@@ -60,28 +60,28 @@ export default function Testimonials() {
         {/* Desktop: 3 cards */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {visible.map((r, i) => (
-            <div key={`${r.name}-${index}-${i}`} className="border border-border p-6 flex flex-col">
+            <div key={`${r.name}-${index}-${i}`} className="bg-white rounded-2xl p-6 flex flex-col shadow-sm">
               <Stars rating={r.rating} />
-              <p className="font-sans text-sm text-foreground leading-relaxed flex-1 mt-4 mb-5">
+              <p className="font-sans text-lg text-foreground leading-relaxed flex-1 mt-4 mb-5">
                 &ldquo;{r.text}&rdquo;
               </p>
               <div className="border-t border-border pt-4">
-                <p className="font-heading text-foreground text-base tracking-wide">{r.name.toUpperCase()}</p>
-                <p className="font-sans text-xs text-muted-foreground mt-0.5">Google Review</p>
+                <p className="font-heading text-foreground text-lg tracking-wide">{r.name.toUpperCase()}</p>
+                <p className="font-sans text-lg text-muted-foreground mt-0.5">Google Review</p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Mobile: single card */}
-        <div className="sm:hidden border border-border p-6">
+        <div className="sm:hidden bg-white rounded-2xl p-6 shadow-sm">
           <Stars rating={reviews[index].rating} />
-          <p className="font-sans text-sm text-foreground leading-relaxed mt-4 mb-5">
+          <p className="font-sans text-lg text-foreground leading-relaxed mt-4 mb-5">
             &ldquo;{reviews[index].text}&rdquo;
           </p>
           <div className="border-t border-border pt-4">
-            <p className="font-heading text-foreground text-base tracking-wide">{reviews[index].name.toUpperCase()}</p>
-            <p className="font-sans text-xs text-muted-foreground mt-0.5">Google Review</p>
+            <p className="font-heading text-foreground text-lg tracking-wide">{reviews[index].name.toUpperCase()}</p>
+            <p className="font-sans text-lg text-muted-foreground mt-0.5">Google Review</p>
           </div>
         </div>
 
@@ -91,7 +91,7 @@ export default function Testimonials() {
             <button
               key={i}
               onClick={() => setIndex(i)}
-              className={`h-1 transition-all ${i === index % total ? "bg-primary w-6" : "bg-border w-2"}`}
+              className={`h-1 rounded-full ${i === index % total ? "bg-primary w-6" : "bg-border w-2"}`}
               aria-label={`Go to review ${i + 1}`}
             />
           ))}

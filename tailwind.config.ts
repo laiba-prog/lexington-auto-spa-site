@@ -17,6 +17,10 @@ const config: Config = {
         "secondary-foreground": "hsl(var(--secondary-foreground))",
         accent: "hsl(var(--accent))",
         "accent-foreground": "hsl(var(--accent-foreground))",
+        gold: "hsl(var(--gold))",
+        "gold-foreground": "hsl(var(--gold-foreground))",
+        coral: "hsl(var(--coral))",
+        "coral-foreground": "hsl(var(--coral-foreground))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         muted: "hsl(var(--muted))",
@@ -25,9 +29,10 @@ const config: Config = {
         border: "hsl(var(--border))",
       },
       fontFamily: {
-        sans: ["Barlow", "sans-serif"],
-        heading: ["Bebas Neue", "cursive"],
-        display: ["Barlow", "sans-serif"],
+        sans: ["Montserrat", "sans-serif"],
+        heading: ["Montserrat", "sans-serif"],
+        display: ["Montserrat", "sans-serif"],
+        logo: ["Anton", "sans-serif"],
       },
       keyframes: {
         "fade-up": {

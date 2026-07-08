@@ -38,69 +38,87 @@ const steps = [
 export default function MembershipPage() {
   return (
     <>
-      <section className="bg-[hsl(var(--dark))] pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <span className="text-primary font-display font-semibold text-sm tracking-widest uppercase">Membership</span>
-          <h1 className="font-heading text-6xl sm:text-7xl text-white mt-2">Wash Club</h1>
-          <p className="font-display text-white/70 text-lg mt-4 max-w-2xl mx-auto">Unlimited clean. One flat monthly rate. No games.</p>
+      {/* Plans */}
+      <section className="pt-24 pb-8 px-4 sm:px-6 lg:px-8">
+        <div className="rounded-[2.5rem] shadow-xl bg-[hsl(var(--muted))] max-w-5xl mx-auto px-5 py-12 sm:px-10 sm:py-16">
+          <div className="mb-10 text-center">
+            <div className="inline-flex items-center rounded-full bg-white px-4 py-1.5 mb-4 shadow-sm">
+              <span className="font-heading text-primary text-lg tracking-[0.2em] uppercase font-bold">Membership</span>
+            </div>
+            <h1 className="font-logo text-foreground leading-none" style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}>
+              Wash <span className="text-primary">Club.</span>
+            </h1>
+            <p className="font-sans text-foreground/60 text-lg sm:text-lg mt-4 max-w-xl mx-auto">
+              Unlimited clean. One flat monthly rate. No games.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+            {plans.map((plan) => (
+              <div key={plan.name} className={`relative pt-6 flex flex-col ${plan.featured ? "mt-8 sm:mt-0" : ""}`}>
+                {plan.featured && (
+                  <div className="absolute -top-2 -right-2 z-10 whitespace-nowrap rounded-full bg-[hsl(var(--gold))] text-[hsl(var(--gold-foreground))] text-sm font-sans font-bold tracking-widest uppercase px-3 py-1 shadow-md rotate-6">
+                    ★ Most Popular
+                  </div>
+                )}
+                <div className={`flex flex-col flex-1 rounded-3xl p-6 sm:p-8 shadow-xl ${plan.featured ? "bg-[hsl(var(--dark))]" : "bg-white"}`}>
+                  <h3 className={`font-heading font-bold text-2xl mb-1 ${plan.featured ? "text-white" : "text-foreground"}`}>{plan.name}</h3>
+                  <div className="flex items-baseline gap-1 mb-6">
+                    <span className={`font-heading font-bold leading-none text-3xl ${plan.featured ? "text-white" : "text-primary"}`}>{plan.price}</span>
+                    <span className={`font-sans text-lg ${plan.featured ? "text-white/50" : "text-foreground/50"}`}>{plan.period}</span>
+                  </div>
+                  <ul className="space-y-3 flex-1 mb-6">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2.5">
+                        <Check className={`w-4 h-4 shrink-0 ${plan.featured ? "text-white" : "text-primary"}`} />
+                        <span className={`font-sans text-lg ${plan.featured ? "text-white/80" : "text-foreground/70"}`}>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="https://www.lexingtonautospa.com/#unlimited-club"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block text-center rounded-full font-heading tracking-widest py-3.5 text-lg ${plan.featured ? "bg-primary text-white hover:bg-accent" : "bg-[hsl(var(--dark))] text-white hover:bg-[hsl(var(--dark))]/80"}`}
+                  >
+                    Join Today
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="bg-white -mt-8 rounded-t-[2.5rem] relative z-10 py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-20">
-            {plans.map((plan) => (
-              <div key={plan.name} className={`rounded-2xl p-8 flex flex-col ${plan.featured ? "bg-[hsl(var(--dark))] ring-2 ring-primary shadow-[0_0_40px_rgba(255,127,26,0.25)]" : "bg-muted border border-border"}`}>
-                {plan.featured && <span className="text-xs font-display font-bold bg-primary text-white px-3 py-1 rounded-full self-start mb-3">MOST POPULAR</span>}
-                <h3 className={`font-heading text-3xl mb-2 ${plan.featured ? "text-white" : "text-foreground"}`}>{plan.name}</h3>
-                <div className="flex items-baseline gap-1 mb-6">
-                  <span className="font-heading text-4xl text-primary">Starting at {plan.price}</span>
-                  <span className={`font-display text-sm ${plan.featured ? "text-white/60" : "text-muted-foreground"}`}>{plan.period}</span>
-                </div>
-                <ul className="space-y-3 flex-1 mb-8">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2.5">
-                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className={`font-display text-sm ${plan.featured ? "text-white/80" : "text-muted-foreground"}`}>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="https://www.lexingtonautospa.com/#unlimited-club"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`block text-center font-display font-semibold py-3 rounded-md transition-colors ${plan.featured ? "bg-primary text-white hover:bg-accent" : "border-2 border-primary text-primary hover:bg-primary hover:text-white"}`}
-                >
-                  Join Today
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
+      {/* Benefits */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="rounded-[2.5rem] shadow-xl bg-[hsl(var(--muted))] max-w-5xl mx-auto px-5 py-12 sm:px-10 sm:py-16">
+          <div className="grid sm:grid-cols-3 gap-6">
             {benefits.map((b) => (
-              <div key={b.title} className="text-center">
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div key={b.title} className="rounded-3xl bg-white p-6 sm:p-8 shadow-sm text-center">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style={{ background: "hsl(var(--primary) / 0.12)" }}>
                   <b.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="font-heading text-2xl text-foreground mb-2">{b.title}</h3>
-                <p className="font-display text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+                <h3 className="font-logo text-foreground text-xl mb-2">{b.title}</h3>
+                <p className="font-sans text-lg text-foreground/55 leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="bg-muted rounded-2xl p-8 lg:p-12">
-            <h2 className="font-heading text-4xl text-foreground text-center mb-10">How It Works</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {steps.map((s) => (
-                <div key={s.step} className="text-center">
-                  <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-heading text-2xl">{s.step}</div>
-                  <h3 className="font-display font-bold text-foreground mb-2">{s.title}</h3>
-                  <p className="font-display text-sm text-muted-foreground">{s.desc}</p>
-                </div>
-              ))}
-            </div>
+      {/* How it works */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="rounded-[2.5rem] shadow-xl bg-[hsl(var(--muted))] max-w-5xl mx-auto px-5 py-12 sm:px-10 sm:py-16">
+          <h2 className="font-logo text-foreground text-center mb-10" style={{ fontSize: "clamp(2rem, 6vw, 3rem)" }}>How It Works</h2>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {steps.map((s) => (
+              <div key={s.step} className="rounded-3xl bg-white p-6 sm:p-8 shadow-sm text-center">
+                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-heading text-xl">{s.step}</div>
+                <h3 className="font-logo text-foreground text-lg mb-2">{s.title}</h3>
+                <p className="font-sans text-lg text-foreground/55 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
