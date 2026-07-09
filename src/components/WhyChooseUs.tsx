@@ -32,7 +32,7 @@ export default function WhyChooseUs() {
               <span className="font-sans text-lg tracking-wide uppercase text-foreground/60 font-semibold">Est. 2005 · Lexington, Kentucky</span>
             </div>
 
-            <h2 className="font-logo text-foreground leading-none mb-4" style={{ fontSize: "clamp(2.5rem, 7vw, 4.5rem)" }}>
+            <h2 className="font-heading text-foreground leading-none mb-4" style={{ fontSize: "clamp(2.5rem, 7vw, 4.5rem)" }}>
               More than<br /><span className="text-primary">a car wash.</span>
             </h2>
 

@@ -17,7 +17,7 @@ export default function ContactForm() {
         <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
           <span className="text-white text-2xl">✓</span>
         </div>
-        <h3 className="font-logo text-3xl text-foreground mb-2">Message Sent!</h3>
+        <h3 className="font-heading text-3xl text-foreground mb-2">Message Sent!</h3>
         <p className="font-display text-muted-foreground">Thanks for reaching out. We'll get back to you shortly.</p>
       </div>
     );

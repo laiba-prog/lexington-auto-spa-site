@@ -8,7 +8,7 @@ export default function VideoReels() {
 
           {/* Left: heading + social */}
           <div>
-            <h2 className="font-logo text-foreground leading-none mb-4" style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}>
+            <h2 className="font-heading text-foreground leading-none mb-4" style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}>
               SEE US IN<br /><span className="text-[hsl(var(--dark))]">ACTION.</span>
             </h2>
             <p className="font-sans text-muted-foreground text-lg leading-relaxed max-w-sm mb-6">

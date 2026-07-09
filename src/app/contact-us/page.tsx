@@ -17,14 +17,14 @@ export default function ContactPage() {
             <div className="inline-flex items-center rounded-full bg-white px-4 py-1.5 mb-4 shadow-sm">
               <span className="font-heading text-primary text-lg tracking-[0.2em] uppercase font-bold">Get In Touch</span>
             </div>
-            <h1 className="font-logo text-foreground leading-none" style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}>
+            <h1 className="font-heading text-foreground leading-none" style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}>
               Contact <span className="text-primary">Us.</span>
             </h1>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div className="rounded-3xl bg-white p-6 sm:p-8 shadow-sm">
-              <h2 className="font-logo text-2xl text-foreground mb-6">Find Us</h2>
+              <h2 className="font-heading text-2xl text-foreground mb-6">Find Us</h2>
               <ul className="space-y-5">
                 <li className="flex gap-4">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: "hsl(var(--primary) / 0.12)" }}>
@@ -67,7 +67,7 @@ export default function ContactPage() {
             </div>
 
             <div className="rounded-3xl bg-white p-6 sm:p-8 shadow-sm">
-              <h2 className="font-logo text-2xl text-foreground mb-6">Send a Message</h2>
+              <h2 className="font-heading text-2xl text-foreground mb-6">Send a Message</h2>
               <ContactForm />
             </div>
           </div>

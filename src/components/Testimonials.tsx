@@ -42,7 +42,7 @@ export default function Testimonials() {
               <div className="h-px w-8 bg-primary" />
               <span className="font-sans text-[hsl(var(--dark))] text-lg tracking-[0.3em] uppercase font-semibold">Reviews</span>
             </div>
-            <h2 className="font-logo text-foreground leading-none" style={{ fontSize: "clamp(2.2rem, 8vw, 4rem)" }}>
+            <h2 className="font-heading text-foreground leading-none" style={{ fontSize: "clamp(2.2rem, 8vw, 4rem)" }}>
               WHAT LEXINGTON<br />IS SAYING.
             </h2>
           </div>

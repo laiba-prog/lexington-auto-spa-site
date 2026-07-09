@@ -29,7 +29,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </Link>
 
         <p className="text-primary font-sans font-semibold text-lg mb-3">{post.date}</p>
-        <h1 className="font-logo text-foreground leading-tight mb-8" style={{ fontSize: "clamp(2rem, 6vw, 3.25rem)" }}>
+        <h1 className="font-heading text-foreground leading-tight mb-8" style={{ fontSize: "clamp(2rem, 6vw, 3.25rem)" }}>
           {post.title}
         </h1>
 

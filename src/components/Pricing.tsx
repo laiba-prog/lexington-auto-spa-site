@@ -93,7 +93,7 @@ function PackageCard({ pkg, mode }: { pkg: Pkg; mode: BillingMode }) {
     <div className="relative pt-4 flex flex-col h-full">
       {pkg.badge && (
         <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap rounded-full bg-[hsl(var(--gold))] text-[hsl(var(--gold-foreground))] text-sm font-sans font-bold tracking-widest uppercase px-4 py-1.5 shadow-lg">
-          ★ {pkg.badge}
+          {pkg.badge}
         </div>
       )}
 
@@ -165,7 +165,7 @@ function PackageGroup({ label, sub, packages, mode }: { label: string; sub: stri
     <div className="mb-20 last:mb-0">
       <div className="flex items-center gap-4 mb-2">
         <div className="flex-1 h-px bg-black/10" />
-        <h3 className="font-logo text-foreground shrink-0 leading-none" style={{ fontSize: "clamp(2rem, 6vw, 3.5rem)" }}>
+        <h3 className="font-heading text-foreground shrink-0 leading-none" style={{ fontSize: "clamp(2rem, 6vw, 3.5rem)" }}>
           {label}
         </h3>
         <div className="flex-1 h-px bg-black/10" />
@@ -199,7 +199,7 @@ export default function Pricing() {
 
         <div className="relative z-10">
           <div className="mb-8 text-center">
-            <h2 className="font-logo text-foreground leading-none" style={{ fontSize: "clamp(2.8rem, 10vw, 5rem)" }}>
+            <h2 className="font-heading text-foreground leading-none" style={{ fontSize: "clamp(2.8rem, 10vw, 5rem)" }}>
               FIND YOUR <span className="text-primary">WASH.</span>
             </h2>
             <p className="font-sans text-foreground/60 text-lg mt-3">

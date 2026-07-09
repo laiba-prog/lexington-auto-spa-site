@@ -17,7 +17,7 @@ export default function BlogPage() {
           <div className="inline-flex items-center rounded-full bg-white px-4 py-1.5 mb-4 shadow-sm">
             <span className="font-heading text-primary text-lg tracking-[0.2em] uppercase font-bold">Car Care Tips</span>
           </div>
-          <h1 className="font-logo text-foreground leading-none" style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}>
+          <h1 className="font-heading text-foreground leading-none" style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}>
             From the <span className="text-primary">Blog.</span>
           </h1>
         </div>
@@ -30,7 +30,7 @@ export default function BlogPage() {
               </div>
               <div className="p-6">
                 <p className="font-sans text-lg text-foreground/40 mb-2">{post.date}</p>
-                <h2 className="font-logo text-xl text-foreground mb-3 leading-tight">{post.title}</h2>
+                <h2 className="font-heading text-xl text-foreground mb-3 leading-tight">{post.title}</h2>
                 <p className="font-sans text-lg text-foreground/60 leading-relaxed mb-4">{post.excerpt}</p>
                 <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-1.5 text-primary font-sans font-semibold text-lg hover:gap-3">
                   Read More <ArrowRight className="w-4 h-4" />

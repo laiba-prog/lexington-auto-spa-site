@@ -52,7 +52,7 @@ function ServiceCard({ title, desc, sub, gold }: (typeof services)[0] & { gold?:
         </span>
       </div>
 
-      <p className="font-logo text-foreground text-2xl leading-none mb-2">{title}</p>
+      <p className="font-heading text-foreground text-2xl leading-none mb-2">{title}</p>
       <p className="font-sans text-foreground/55 text-lg leading-relaxed">{desc}</p>
     </div>
   );
@@ -64,7 +64,7 @@ export default function OtherServices() {
       <div className="rounded-[2.5rem] shadow-xl bg-[hsl(var(--muted))] max-w-5xl mx-auto px-5 py-12 sm:px-10 sm:py-16">
 
         <h2
-          className="font-logo text-foreground leading-none mb-12"
+          className="font-heading text-foreground leading-none mb-12"
           style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}
         >
           Everything<br />

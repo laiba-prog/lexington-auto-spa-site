@@ -45,7 +45,7 @@ export default function MembershipPage() {
             <div className="inline-flex items-center rounded-full bg-white px-4 py-1.5 mb-4 shadow-sm">
               <span className="font-heading text-primary text-lg tracking-[0.2em] uppercase font-bold">Membership</span>
             </div>
-            <h1 className="font-logo text-foreground leading-none" style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}>
+            <h1 className="font-heading text-foreground leading-none" style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}>
               Wash <span className="text-primary">Club.</span>
             </h1>
             <p className="font-sans text-foreground/60 text-lg sm:text-lg mt-4 max-w-xl mx-auto">
@@ -58,7 +58,7 @@ export default function MembershipPage() {
               <div key={plan.name} className={`relative pt-6 flex flex-col ${plan.featured ? "mt-8 sm:mt-0" : ""}`}>
                 {plan.featured && (
                   <div className="absolute -top-2 -right-2 z-10 whitespace-nowrap rounded-full bg-[hsl(var(--gold))] text-[hsl(var(--gold-foreground))] text-sm font-sans font-bold tracking-widest uppercase px-3 py-1 shadow-md rotate-6">
-                    ★ Most Popular
+                    Most Popular
                   </div>
                 )}
                 <div className={`flex flex-col flex-1 rounded-3xl p-6 sm:p-8 shadow-xl ${plan.featured ? "bg-[hsl(var(--dark))]" : "bg-white"}`}>
@@ -99,7 +99,7 @@ export default function MembershipPage() {
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style={{ background: "hsl(var(--primary) / 0.12)" }}>
                   <b.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="font-logo text-foreground text-xl mb-2">{b.title}</h3>
+                <h3 className="font-heading text-foreground text-xl mb-2">{b.title}</h3>
                 <p className="font-sans text-lg text-foreground/55 leading-relaxed">{b.desc}</p>
               </div>
             ))}
@@ -110,12 +110,12 @@ export default function MembershipPage() {
       {/* How it works */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 pb-16">
         <div className="rounded-[2.5rem] shadow-xl bg-[hsl(var(--muted))] max-w-5xl mx-auto px-5 py-12 sm:px-10 sm:py-16">
-          <h2 className="font-logo text-foreground text-center mb-10" style={{ fontSize: "clamp(2rem, 6vw, 3rem)" }}>How It Works</h2>
+          <h2 className="font-heading text-foreground text-center mb-10" style={{ fontSize: "clamp(2rem, 6vw, 3rem)" }}>How It Works</h2>
           <div className="grid sm:grid-cols-3 gap-6">
             {steps.map((s) => (
               <div key={s.step} className="rounded-3xl bg-white p-6 sm:p-8 shadow-sm text-center">
                 <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-heading text-xl">{s.step}</div>
-                <h3 className="font-logo text-foreground text-lg mb-2">{s.title}</h3>
+                <h3 className="font-heading text-foreground text-lg mb-2">{s.title}</h3>
                 <p className="font-sans text-lg text-foreground/55 leading-relaxed">{s.desc}</p>
               </div>
             ))}

@@ -4,18 +4,20 @@ import Link from "next/link";
 
 const VIDEO_URL = "https://43yvylcg4r.ucarecd.net/28c12dd7-89ef-48fd-abec-b4491f215412/";
 
-function Wordmark({ compact = false }: { compact?: boolean }) {
+function Wordmark({ compact = false, onDark = false }: { compact?: boolean; onDark?: boolean }) {
+  const textColor = onDark ? "text-white" : "text-[hsl(var(--dark))]";
+  const stroke = onDark ? "[-webkit-text-stroke:1px_black]" : "[-webkit-text-stroke:1px_white]";
   return (
-    <div className={`relative w-full rounded-3xl bg-[hsl(var(--dark))] shadow-xl ${compact ? "px-4 py-6" : "px-7 py-5 mb-4 overflow-hidden"}`}>
+    <div className={`relative w-full ${compact ? "px-4 py-6" : "-ml-4 lg:-ml-8 py-5 mb-4"}`}>
       <h1
-        className={`font-logo italic text-white leading-[1.05] tracking-wide [-webkit-text-stroke:1px_black] [paint-order:stroke_fill] ${compact ? "whitespace-nowrap" : ""}`}
-        style={{ fontSize: compact ? "clamp(1.6rem, 9vw, 2.75rem)" : "clamp(2.25rem, 5.5vw, 4rem)" }}
+        className={`font-logo italic ${textColor} leading-[1.05] tracking-wide ${stroke} [paint-order:stroke_fill] ${compact ? "whitespace-nowrap" : ""}`}
+        style={{ fontSize: compact ? "clamp(1.6rem, 9vw, 2.75rem)" : "clamp(3rem, 8vw, 6.5rem)" }}
       >
         {compact ? "Lexington Auto Spa" : <>Lexington<br />Auto Spa</>}
       </h1>
       <p
-        className="font-logo italic text-[hsl(var(--gold))] leading-none tracking-wide [-webkit-text-stroke:1px_black] [paint-order:stroke_fill] mt-1"
-        style={{ fontSize: compact ? "clamp(1.6rem, 9vw, 2.75rem)" : "clamp(2.25rem, 5.5vw, 4rem)" }}
+        className={`font-logo italic ${onDark ? "text-white" : "text-[hsl(var(--primary))]"} leading-none tracking-wide ${stroke} [paint-order:stroke_fill] mt-1`}
+        style={{ fontSize: compact ? "clamp(1.6rem, 9vw, 2.75rem)" : "clamp(3rem, 8vw, 6.5rem)" }}
       >
         Carwash
       </p>
@@ -46,35 +48,22 @@ function CTAButtons({ justify = "center" }: { justify?: "center" | "start" }) {
 
 function MobileHero() {
   return (
-    <div className="relative overflow-hidden rounded-b-[2.5rem] shadow-xl bg-[hsl(var(--dark))] min-[900px]:hidden">
-      {/* Soft glow behind the wordmark for depth on the flat dark background */}
-      <div
-        className="absolute -top-12 left-1/2 -translate-x-1/2 h-64 w-96 rounded-full bg-primary/30 blur-3xl"
-        aria-hidden
+    <div className="relative overflow-hidden rounded-b-[2.5rem] shadow-xl bg-[hsl(var(--dark))] min-[900px]:hidden" style={{ aspectRatio: "3 / 4" }}>
+      {/* Full-bleed video background */}
+      <video
+        src={VIDEO_URL}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover object-center"
       />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/70" />
 
-      <div className="relative px-6 pt-16 pb-6 text-center">
-        <Wordmark compact />
-      </div>
-
-      <div className="relative px-5 pb-6">
-        <div
-          className="relative overflow-hidden rounded-3xl shadow-2xl outline outline-1 -outline-offset-1 outline-white/10"
-          style={{ aspectRatio: "4 / 3" }}
-        >
-          <video
-            src={VIDEO_URL}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="h-full w-full object-cover object-center"
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+      <div className="relative flex h-full flex-col justify-end px-6 pt-16 pb-10">
+        <div className="text-center mb-6">
+          <Wordmark compact onDark />
         </div>
-      </div>
-
-      <div className="relative px-6 pb-10">
         <CTAButtons />
       </div>
     </div>
@@ -87,7 +76,7 @@ export default function Hero() {
       <MobileHero />
 
       {/* Desktop / tablet: text and video side by side */}
-      <div className="hidden min-[900px]:flex min-h-screen flex-col justify-center relative overflow-hidden rounded-b-[2.5rem] shadow-xl bg-[hsl(var(--muted))] pt-24 pb-16 px-6 lg:px-16">
+      <div className="hidden min-[900px]:flex min-h-screen flex-col justify-center relative overflow-hidden rounded-b-[2.5rem] shadow-xl bg-white pt-24 pb-16 px-6 lg:px-16">
         <div className="relative grid min-[900px]:grid-cols-[auto_1fr] gap-6 lg:gap-16 items-center">
 
           {/* Left: copy */}

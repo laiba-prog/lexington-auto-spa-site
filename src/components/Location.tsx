@@ -4,7 +4,7 @@ export default function Location() {
       <div className="rounded-[2.5rem] shadow-xl bg-[hsl(var(--muted))] max-w-5xl mx-auto px-5 py-12 sm:px-10 sm:py-16">
 
         <div className="mb-10">
-          <h2 className="font-logo text-foreground leading-none" style={{ fontSize: "clamp(2.8rem, 10vw, 5rem)" }}>
+          <h2 className="font-heading text-foreground leading-none" style={{ fontSize: "clamp(2.8rem, 10vw, 5rem)" }}>
             VISIT US IN<br /><span className="text-primary">LEXINGTON.</span>
           </h2>
         </div>
